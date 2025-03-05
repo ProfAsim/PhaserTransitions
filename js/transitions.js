@@ -12,39 +12,40 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
+const Scene1 = {
+    // Preload function for loading assets
+    function preload() {
+        // Load your assets here (images, spritesheets, etc.)
+        this.load.image('background', 'assets/lushgreen.webp');
+    }
 
-// Preload function for loading assets
-function preload() {
-    // Load your assets here (images, spritesheets, etc.)
-    this.load.image('background', 'assets/lushgreen.webp');
-}
-
-// Create function for initializing game objects
-function create() {
-    // Add a background sprite
-    const background = this.add.sprite(0, 0, 'background').setOrigin(0, 0);
-
-    // Set up a text object to display scene information
-    const text = this.add.text(400, 300, 'Scene 1 - Press Space to Transition', {
-        fontSize: '24px',
-        fill: '#fff'
-    });
-    text.setOrigin(0.5);
-
-    // Define a key for transitioning to the next scene
-    const spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-
-    // Set up an event listener for the space key
-    this.input.keyboard.on('keydown-SPACE', function (event) {
-        // Transition to the next scene
-        this.scene.start('Scene2');
-    }, this);
-}
-
-// Update function for game logic
-function update() {
-    // Add any game logic or updates here
-}
+        // Create function for initializing game objects
+        function create() {
+            // Add a background sprite
+            const background = this.add.sprite(0, 0, 'background').setOrigin(0, 0);
+        
+            // Set up a text object to display scene information
+            const text = this.add.text(400, 300, 'Scene 1 - Press Space to Transition', {
+                fontSize: '24px',
+                fill: '#fff'
+            });
+            text.setOrigin(0.5);
+        
+            // Define a key for transitioning to the next scene
+            const spaceKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        
+            // Set up an event listener for the space key
+            this.input.keyboard.on('keydown-SPACE', function (event) {
+                // Transition to the next scene
+                this.scene.start('Scene2');
+            }, this);
+        }
+        
+        // Update function for game logic
+        function update() {
+            // Add any game logic or updates here
+        }
+};
 
 // Define a second scene
 const Scene2 = {
