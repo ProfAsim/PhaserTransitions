@@ -14,13 +14,13 @@ const config = {
 const game = new Phaser.Game(config);
 const Scene1 = {
     // Preload function for loading assets
-    function preload() {
+    preload: function() {
         // Load your assets here (images, spritesheets, etc.)
         this.load.image('background', 'assets/lushgreen.webp');
-    }
+    },
 
         // Create function for initializing game objects
-        function create() {
+   create: function() {
             // Add a background sprite
             const background = this.add.sprite(0, 0, 'background').setOrigin(0, 0);
         
@@ -39,10 +39,10 @@ const Scene1 = {
                 // Transition to the next scene
                 this.scene.start('Scene2');
             }, this);
-        }
+        },
         
         // Update function for game logic
-        function update() {
+      update: function() {
             // Add any game logic or updates here
         }
 };
